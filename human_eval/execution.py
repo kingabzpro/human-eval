@@ -45,17 +45,7 @@ def check_correctness(problem: Dict, completion: str, timeout: float,
                 exec_globals = {}
                 with swallow_io():
                     with time_limit(timeout):
-# WARNING
-# This program exists to execute untrusted model-generated code. Although
-# it is highly unlikely that model-generated code will do something overtly
-# malicious in response to this test suite, model-generated code may act
-# destructively due to a lack of model capability or alignment.
-# Users are strongly encouraged to sandbox this evaluation suite so that it 
-# does not perform destructive actions on their host or network. For more 
-# information on how OpenAI sandboxes its code, see the accompanying paper.
-# Once you have read this disclaimer and taken appropriate precautions, 
-# uncomment the following line and proceed at your own risk:
-#                         exec(check_program, exec_globals)
+                        exec(check_program, exec_globals)
                 result.append("passed")
             except TimeoutException:
                 result.append("timed out")
